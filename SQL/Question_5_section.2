@@ -1,0 +1,34 @@
+SELECT
+CustomerID,
+COUNT(OrderID) AS OrderCount,
+SUM(TotalSales) AS Revenue
+FROM Sales
+GROUP BY CustomerID
+HAVING COUNT(OrderID) > 1
+ORDER BY OrderCount DESC;
+
+Customer loyalty plays a critical role in business success. Loyal customers remain committed to a brand and its products despite price adjustments.
+
+SELECT
+c.Region,
+COUNT(DISTINCT s.CustomerID) AS Customers,
+SUM(s.TotalSales) AS Revenue,
+SUM(s.Profit) AS Profit
+FROM Sales s
+JOIN Customers c
+ON s.CustomerID = c.CustomerID
+GROUP BY c.Region
+ORDER BY Revenue DESC;
+
+Profit is generated across different regions enabling the business to allocate products based on regional demand and maximize profitability.
+
+SELECT
+Channel,
+COUNT(OrderID) AS TotalOrders,
+SUM(TotalSales) AS Revenue,
+SUM(Profit) AS Profit
+FROM Sales
+GROUP BY Channel;
+
+The majority of the company's sales revenue is generated through online purchases, providing an opportunity to capitalize on the growing e-commerce market. This enables the business to drive revenue growth while minimizing the significant costs associated with investing in and maintaining physical store locations.
+
