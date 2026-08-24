@@ -1,0 +1,8 @@
+SELECT
+SUM(TotalSales) AS TotalRevenue,
+SUM(Profit) AS TotalProfit,
+ROUND((SUM(Profit) / SUM(TotalSales)) * 100, 2) AS ProfitMargin,
+COUNT(DISTINCT OrderID) AS TotalOrders,
+COUNT(DISTINCT CustomerID) AS TotalCustomers,
+ROUND(SUM(TotalSales) / COUNT(DISTINCT OrderID), 2) AS AverageOrderValue
+FROM Sales;
